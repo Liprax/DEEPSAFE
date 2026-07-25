@@ -27,22 +27,49 @@ class HomeScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(32.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    Text('DeepSafe', 
-                      style: TextStyle(
-                        fontSize: 32, 
-                        fontWeight: FontWeight.bold, 
-                        color: isDark ? Colors.white : const Color(0xFF2f3542),
-                        letterSpacing: 1.2
-                      )),
-                    Text('Güvenli Veri Yönetimi', 
-                      style: TextStyle(
-                        fontSize: 14, 
-                        color: isDark ? const Color(0xFF58A6FF) : Colors.blueGrey,
-                        fontWeight: FontWeight.w500
-                      )),
+                    Container(
+                      width: 52,
+                      height: 52,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFFD4AF37).withOpacity(0.3),
+                            blurRadius: 12,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(14),
+                        child: Image.asset(
+                          'assets/images/logo.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => const Icon(Icons.shield, color: Color(0xFFD4AF37), size: 36),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('DeepSafe', 
+                          style: TextStyle(
+                            fontSize: 32, 
+                            fontWeight: FontWeight.bold, 
+                            color: isDark ? Colors.white : const Color(0xFF2f3542),
+                            letterSpacing: 1.2
+                          )),
+                        Text('Güvenli Veri Yönetimi', 
+                          style: TextStyle(
+                            fontSize: 14, 
+                            color: isDark ? const Color(0xFF58A6FF) : Colors.blueGrey,
+                            fontWeight: FontWeight.w500
+                          )),
+                      ],
+                    ),
                   ],
                 ),
               ),

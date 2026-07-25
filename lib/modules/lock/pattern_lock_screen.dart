@@ -91,15 +91,29 @@ class _PatternLockScreenState extends State<PatternLockScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(20),
+                    width: 90,
+                    height: 90,
                     decoration: BoxDecoration(
-                      color: isDark ? Colors.white.withOpacity(0.03) : Colors.black.withOpacity(0.02),
-                      shape: BoxShape.circle,
+                      borderRadius: BorderRadius.circular(22),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFFD4AF37).withOpacity(0.3),
+                          blurRadius: 20,
+                          spreadRadius: 2,
+                        ),
+                      ],
                     ),
-                    child: Icon(
-                      Icons.lock_outline_rounded, 
-                      size: 64, 
-                      color: isDark ? const Color(0xFF58A6FF) : const Color(0xFF1e90ff)
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(22),
+                      child: Image.asset(
+                        'assets/images/logo.png',
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => Icon(
+                          Icons.lock_outline_rounded,
+                          size: 64,
+                          color: isDark ? const Color(0xFF58A6FF) : const Color(0xFF1e90ff),
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
